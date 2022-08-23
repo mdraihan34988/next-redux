@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Homepage from '../views/Homepage'
 import store from '../redux/store'
+import fetchRestaurant from '../redux/restaurants/thunk/fetchRestaurant'
 
 export default function Home() {
   return (
@@ -10,6 +11,6 @@ export default function Home() {
   )
 }
 
-export async function getServerSideProps(context) {
-   await store.dispatch(fetchRestaurant);
-}
+// export async function getServerSideProps(context) {
+//   //  await store.dispatch(fetchRestaurant);
+// }
