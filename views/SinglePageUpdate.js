@@ -14,8 +14,8 @@ function SinglePageUpdate({id}) {
     },[])
   return (
     <>
-    <Head><title>Restaurant</title></Head>
-    {restaurant ? <UpdateRestaurents restaurant={restaurant.attributes} id={id} /> : <div className='text-center font-bold'>404 | Not Found</div>}
+    <Head><title>Restaurant | Update</title></Head>
+    {restaurant ? <UpdateRestaurents restaurant={restaurant.attributes} id={id}  /> : <div className='text-center font-bold'>404 | Not Found</div>}
     </>
   )
 }

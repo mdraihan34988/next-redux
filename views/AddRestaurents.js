@@ -15,15 +15,19 @@ function AddRestaurents() {
   const submitHandler = (e) => {
     e.preventDefault();
     let data = {
-      data: {
         title: name,
         date,
         location,
         openningtime : openingTime,
         closingtime : closeingTime
-      }
     }
-    dispatch(addRestaurant(data));
+    console.log(data)
+    const image = document.querySelector('#grid-image');
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
+    formData.append(`files.image`, image.files[0], image.files[0]?.name);
+
+    dispatch(addRestaurant(formData));
   };
 
   return (
@@ -122,7 +126,7 @@ function AddRestaurents() {
           </div>
         </div>
    
-        {/* <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -138,7 +142,7 @@ function AddRestaurents() {
             />
           </div>
           
-        </div> */}
+        </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label

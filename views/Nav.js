@@ -68,9 +68,10 @@ function nav() {
                             <li className="text-gray-600 hover:text-blue-600">
                                 <a href="/">Home</a>
                             </li>
-                            {/* <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">Blog</a>
+                             <li className="text-gray-600 hover:text-blue-600">
+                                <a href="/addrestaurent">Add Restaurent</a>
                             </li>
+                            {/*
                             <li className="text-gray-600 hover:text-blue-600">
                                 <a href="javascript:void(0)">About US</a>
                             </li>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import addRestaurant from '../redux/restaurants/thunk/addRestaurant'
+import updateRestaurant from '../redux/restaurants/thunk/updateRestaurant'
+import http from '../util/http'
+import Swal from "sweetalert2";
 
 function UpdateRestaurents({ restaurant,id }) {
-  const dispatch = useDispatch();
 
   const [name,setName] = useState('');
   const [location,setLocation] = useState('');
@@ -15,22 +16,53 @@ function UpdateRestaurents({ restaurant,id }) {
   
     if(restaurant) {
       setName(restaurant.title);
-      debugger
+      setLocation(restaurant.location);
+      setDate(restaurant.date)
+      setCloseingTime(restaurant.closingtime)
+      setOpeningTime(restaurant.openningtime)
     }
   },[])
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     let data = {
-      data: {
         title: name,
         date,
         location,
         openningtime : openingTime,
         closingtime : closeingTime
-      }
     }
-    dispatch(addRestaurant(data));
+    // http.put('https://starpy-backend.herokuapp.com/api/restaurents/'+id, data)
+    //   .then((res) => {
+    //     console.log(res)
+    //     Swal.fire(
+    //       'Update Success!',
+    //       '',
+    //       'success'
+    //     ).then(()=>{
+    //       window.location.href= '/';         
+    //     })
+    //   })
+    const image = document.querySelector('#grid-image');
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
+    if(image.files[0]) {
+      formData.append(`files.image`, image.files[0], image.files[0]?.name);
+    }
+    
+    await fetch('https://starpy-backend.herokuapp.com/api/restaurents', {
+      method: 'post',
+      body: formData
+    });
+
+    Swal.fire(
+      'Update Success!',
+      '',
+      'success'
+    ).then(()=>{
+      window.location.href= '/';         
+    })
+    
   };
 
   return (
@@ -129,7 +161,7 @@ function UpdateRestaurents({ restaurant,id }) {
           </div>
         </div>
    
-        {/* <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -145,7 +177,13 @@ function UpdateRestaurents({ restaurant,id }) {
             />
           </div>
           
-        </div> */}
+        </div>
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            {<img className="h-48 w-full object-cover md:h-full md:w-48" src={process.env.NEXT_PUBLIC_APP_API_URL+restaurant?.image?.data?.attributes?.url} alt={restaurant?.title}/>}
+          </div>
+          
+        </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label

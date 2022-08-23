@@ -1,9 +1,10 @@
 import { updated } from "../actionCreators";
 
-const updateRestaurant = (restaurant) => {
-    const url = process.env.NEXT_PUBLIC_APP_API_URL+'';
+const updateRestaurant = (restaurant,id) => {
+    const url = process.env.NEXT_PUBLIC_APP_API_URL+'/api/restaurents';
     
     return async (dispatch) => {
+        debugger
         const response = await fetch(url, {
             method: "PUT",
             body: JSON.stringify({

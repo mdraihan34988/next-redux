@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import Review from './Review'
 
 function Reviews( {reviews}) {
-debugger
+
   return (
     <>
-
     {
-        reviews.map((review) => (
-            <><br/><Review  review={reviews.review}/></>
+        reviews && reviews?.data.map((review) => (
+            <><br/><Review  review={review}/></>
         ))
     }
     </>
