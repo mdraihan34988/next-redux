@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import addRestaurant from '../redux/restaurants/thunk/addRestaurant'
 
-function AddRestaurents() {
+function UpdateRestaurents({ restaurant,id }) {
   const dispatch = useDispatch();
 
   const [name,setName] = useState('');
@@ -11,6 +11,13 @@ function AddRestaurents() {
   const [openingTime,setOpeningTime] = useState('');
   const [closeingTime,setCloseingTime] = useState('');
 
+  useEffect(() => {
+  
+    if(restaurant) {
+      setName(restaurant.title);
+      debugger
+    }
+  },[])
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -175,4 +182,4 @@ function AddRestaurents() {
   );
 }
 
-export default AddRestaurents;
+export default UpdateRestaurents;

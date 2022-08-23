@@ -14,9 +14,15 @@ function Restaurant({restaurant,id}) {
           <a href={"/restaurant/"+id} className="block mt-1 text-lg leading-tight cursor:pointer font-medium text-black hover:underline">{restaurant?.title}</a>
           <p className="mt-2 text-slate-500">Opening Time : <Moment format="LT">{restaurant?.attributes?.openningtime}</Moment></p>
           <p className="my-2 text-slate-500">Closing Time : <Moment format="LT">{restaurant?.attributes?.closingtime}</Moment></p>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full float-right">
+          <a href={"/delete/"+id}><button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full float-right">
+            Delete
+          </button>
+          </a>
+          <a href={"/update/"+id}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 mx-2 px-2 rounded-full float-right">
             Update
           </button>
+          </a>
+          
           
         </div>
           
