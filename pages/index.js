@@ -8,3 +8,7 @@ export default function Home() {
     <Homepage />
   )
 }
+
+// export async function getServerSideProps(context) {
+//   //  await store.dispatch(fetchRestaurant);
+// }

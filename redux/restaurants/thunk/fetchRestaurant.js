@@ -2,7 +2,7 @@ import { loaded } from "../actionCreators";
 
 const fetchRestaurants = async (dispatch) => {
     
-    const url = process.env.NEXT_PUBLIC_APP_API_URL+'api/restaurents';
+    const url = process.env.NEXT_PUBLIC_APP_API_URL+'/api/restaurents?populate=*';
     const response = await fetch(url);
     const result = await response.json();
     const Restaurants = result?.data;
