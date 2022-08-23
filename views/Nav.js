@@ -6,7 +6,7 @@ function nav() {
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="/" className="flex items-center">
           <img
-            src={process.env.NEXT_PUBLIC_APP_API_URL + "admin/15026a3d58aeb2828134.png"}
+            src={process.env.NEXT_PUBLIC_APP_API_URL + "/admin/15026a3d58aeb2828134.png"}
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />
