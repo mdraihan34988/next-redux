@@ -25,7 +25,10 @@ function AddRestaurents() {
     const image = document.querySelector('#grid-image');
     const formData = new FormData();
     formData.append('data', JSON.stringify(data));
-    formData.append(`files.image`, image.files[0], image.files[0]?.name);
+    if(image.files[0]) {
+      formData.append(`files.image`, image.files[0], image.files[0]?.name);
+    }
+    
 
     dispatch(addRestaurant(formData));
   };

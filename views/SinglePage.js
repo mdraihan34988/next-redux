@@ -11,12 +11,12 @@ function SinglePage({id}) {
         
         console.log(restaurant)
         console.log(restaurant.attributes.reviews)
-        debugger
+        
     },[])
   return (
     <>
     <Head><title>Restaurant</title></Head>
-    {restaurant ? <> <Restaurant restaurant={restaurant.attributes} id={id} /> <br/> {restaurant.attributes.reviews && <Reviews  reviews={restaurant.attributes.reviews}/>} <br/></> : <div className='text-center font-bold'>404 | Not Found</div>}
+    {restaurant ? <> <Restaurant restaurant={restaurant.attributes} id={id} /> <br/> {restaurant.attributes.reviews && <Reviews  id={id}/>} <br/></> : <div className='text-center font-bold'>404 | Not Found</div>}
     </>
   )
 }
