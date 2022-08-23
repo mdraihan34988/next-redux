@@ -9,7 +9,7 @@ function Restaurants() {
     <>
     {
         restaurants.map((restaurant) => (
-            <><br/><Restaurant key={restaurant.id} restaurant={restaurant.attributes}/></>
+            <><br/><Restaurant key={restaurant.id} id={restaurant.id} restaurant={restaurant.attributes}/></>
         ))
     }
     </>
