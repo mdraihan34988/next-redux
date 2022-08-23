@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Restaurants from './Restaurants'
+import { useDispatch, useSelector } from 'react-redux'
+import store from '../redux/store'
+import fetchRestaurant from '../redux/restaurants/thunk/fetchRestaurant'
 
 function Homepage() {
+  const dispatch = useDispatch();
+
+  useEffect(()=> {
+    dispatch(fetchRestaurant);
+  },[])
+
   return (
-    <h1 className="text-xl">Homepage</h1>
+    <Restaurants />
   )
 }
 
 export default Homepage
+
+export async function getServerSideProps(context) {
+  // await store.dispatch(fetchRestaurant);
+}
