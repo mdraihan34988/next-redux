@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Restaurant from './Restaurant';
+import Review from './Review';
 import Head from 'next/head'
 
 function SinglePage({id}) {
@@ -9,12 +10,13 @@ function SinglePage({id}) {
     useEffect(()=> {
         debugger
         console.log(restaurant)
+        console.log(Review)
         
     },[])
   return (
     <>
     <Head><title>Restaurant</title></Head>
-    {restaurant ? <Restaurant restaurant={restaurant.attributes} id={id} /> : <div className='text-center font-bold'>404 | Not Found</div>}
+    {restaurant ? <> <Restaurant restaurant={restaurant.attributes} id={id} /> <br/> <Review  reviews={restaurant.attributes}/> <br/></> : <div className='text-center font-bold'>404 | Not Found</div>}
     </>
   )
 }
