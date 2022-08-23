@@ -17,10 +17,7 @@ const reducer = (state = initialState, action) => {
         case ADD:
             return [
                 ...state,
-                {
-                    id: nextTodoId(state),
-                    ... action.payload
-                },
+                     action.payload
             ];
 
         case DELETE :

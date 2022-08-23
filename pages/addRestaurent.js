@@ -1,6 +1,6 @@
 import AddRestaurents from '../views/AddRestaurents'
 
-export default function addRestaurent() {
+export default function Add() {
   return (
     <AddRestaurents />
   )
